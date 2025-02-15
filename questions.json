@@ -1,0 +1,125 @@
+{
+    "questions": [
+      {
+        "question": "What are you aiming to create?",
+        "options": [
+          {
+            "text": "A web app",
+            "weights": { "lovable": 3, "replit": 3, "v0": 3, "bolt": 3, "cursor": 3 }
+          },
+          {
+            "text": "A mobile app",
+            "weights": { "cursor": 2, "bolt": 3 }
+          },
+          {
+            "text": "Just need a coding sidekick",
+            "weights": { "chatgpt": 3, "claudeSonnet": 3 }
+          }
+        ]
+      },
+      {
+        "question": "What's your primary objective?",
+        "options": [
+          {
+            "text": "Whip up a quick prototype",
+            "weights": { "claudeSonnet": 2, "chatgpt": 1, "lovable": 3, "v0": 3 }
+          },
+          {
+            "text": "Develop a functional MVP for a demo",
+            "weights": { "lovable": 2, "replit": 3, "v0": 3, "bolt": 3, "cursor": 2 }
+          },
+          {
+            "text": "Build a comprehensive full-stack app",
+            "weights": { "replit": 3, "cursor": 4 }
+          }
+        ]
+      },
+      {
+        "question": "How would you describe your tech skills?",
+        "options": [
+          {
+            "text": "Newbie - still trying to find the 'any' key",
+            "weights": { "chatgpt": 3, "claudeSonnet": 3, "lovable": 2 }
+          },
+          {
+            "text": "Intermediate - comfortable but eager for a challenge",
+            "weights": { "replit": 4, "v0": 3, "bolt": 3 }
+          },
+          {
+            "text": "Advanced - fluent in tech and ready to go!",
+            "weights": { "cursor": 3 }
+          }
+        ]
+      },
+      {
+        "question": "How do you feel about the learning curve?",
+        "options": [
+          {
+            "text": "Prefer a gentle slope",
+            "weights": { "chatgpt": 3, "claudeSonnet": 3, "lovable": 4 }
+          },
+          {
+            "text": "Ready to embrace a steep climb",
+            "weights": { "replit": 3, "v0": 2, "bolt": 2, "cursor": 4 }
+          }
+        ]
+      },
+      {
+        "question": "How important is design and aesthetics?",
+        "options": [
+          {
+            "text": "Function over form",
+            "weights": { "replit": 3 }
+          },
+          {
+            "text": "A balance, it should look good",
+            "weights": { "bolt": 3, "cursor": 2 }
+          },
+          {
+            "text": "Design is paramount, it should dazzle",
+            "weights": { "v0": 4, "lovable": 2 }
+          }
+        ]
+      },
+      {
+        "question": "Will your project need user authentication?",
+        "options": [
+          {
+            "text": "Absolutely",
+            "weights": { "lovable": 2, "replit": 1, "v0": 2, "bolt": 3, "cursor": 4 }
+          },
+          {
+            "text": "Nope",
+            "weights": { "claudeSonnet": 3 }
+          }
+        ]
+      },
+      {
+        "question": "Will your app need a database for data storage?",
+        "options": [
+          {
+            "text": "Yes, data management is key",
+            "weights": { "lovable": 2, "replit": 1, "bolt": 3, "cursor": 4 }
+          },
+          {
+            "text": "No, keeping it simple",
+            "weights": { "claudeSonnet": 1, "v0": 3 }
+          }
+        ]
+      },
+      {
+        "question": "Do you want to store your code on GitHub?",
+        "options": [
+          {
+            "text": "Yes, required",
+            "weights": { "lovable": 3, "replit": 3, "bolt": 3, "cursor": 3 }
+          },
+          {
+            "text": "No, not a priority",
+            "weights": { "claudeSonnet": 1, "v0": 2 }
+          }
+        ]
+      }
+    ]
+  }
+  

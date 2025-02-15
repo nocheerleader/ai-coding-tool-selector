@@ -1,0 +1,281 @@
+# Project Instructions
+
+Start by following the rules in the global 'Rules for AI' 
+
+Use specification and guidelines as you build the app.
+
+Write the complete code for every step. Do not get lazy.
+
+Your goal is to completely finish whatever I ask for.
+
+
+## Overview
+
+We're building a web app called "AI Coding Tool Selector".
+
+The web app will be a simple interactive decision tree where users answer multiple-choice questions, each answer has been mapped to tools with a weighted score, ultimately leading to a recommended AI coding tool.
+
+## Tech Stack
+
+- Frontend: Next.js (React), Tailwind, Shadcn
+- Client-side state management (local storage preferred)
+- No backend or database (unless absolutely necessary; in that case, Supabase can be integrated)
+- Deployment: Vercel
+
+## Constraints:
+- User authentication not required
+- Must work fully in the browser
+- Simple, structured, and maintainable code
+
+## Project Structure
+
+ai-coding-tool-selector/
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── next.config.js
+├── public/
+│   ├── favicon.ico
+│   └── assets/
+│       └── logo.png
+├── src/
+│   ├── app/               // Using the new App Router (Next.js 13+)
+│   │   ├── layout.tsx     // Root layout (includes <html>, <head>, etc.)
+│   │   ├── page.tsx       // Landing page (could include a brief intro)
+│   │   ├── components/
+│   │   │   ├── Header.tsx           // App header (title, navigation)
+│   │   │   ├── DecisionTree.tsx     // Main component for question flow
+│   │   │   ├── Recommendation.tsx   // Displays the final recommended tool(s)
+│   │   │   └── OptionButton.tsx     // Reusable button for answer options
+│   │   └── data/
+│   │       └── questions.json       // JSON file with all questions and weight mappings
+│   ├── hooks/
+│   │   └── useLocalStorage.ts       // Custom hook for syncing state with localStorage
+│   ├── styles/
+│   │   ├── globals.css              // Global styles
+│   │   └── Home.module.css          // Home page-specific styles
+│   └── utils/
+│       └── scoreCalculator.ts       // Utility to sum weights, sort tools, and determine recommendation(s)
+└── README.md
+
+## UI Design & Basic Layout
+- Design Layout: Create a simple layout with a header, main content area. 
+- Build basic components: 
+     - Title “AI Coding Tool Selector”.
+     - Container for questions and options.
+     - Recommendation: Component to show the final tool.
+- Implementation: Start with a basic UI in pages/index.tsx to render the layout.
+- Keep the UI minimal—focus on functionality. We can refine the styling later.
+
+## Creating the Question Flow Logic
+ 
+- Define Data Structure for Questions & Weights:
+     - Use questions.JSON file that holds info for the questions and answers.
+	 - For each question, I have included:
+		- The question text
+		- The answer options
+		- For each option, an object mapping tool names to their weight increments
+		
+- Start with all tools at 0 points.
+- Sort the tools by highest score.
+- Return the top recommendation (or top 2 if tied) 
+
+## Project Rules
+
+Follow these rules when building the app.
+
+### General Rules
+
+- Use `@` to import anything from the app unless otherwise specified
+- Use kebab case for all files and folders unless otherwise specified
+- Don't update shadcn components unless otherwise specified
+
+### Frontend Rules
+
+Follow these rules when working on the frontend.
+
+It uses Next.js, Tailwind and Shadcn.
+
+#### General Rules
+
+- Use `lucide-react` for icons
+
+#### Components
+
+- Use divs instead of other html tags unless otherwise specified
+- Separate the main parts of a component's html with an extra blank line for visual spacing
+- Always tag a component with either `use server` or `use client` at the top, including layouts and pages
+
+##### Organization
+
+- All components be named using kebab case like `example-component.tsx` unless otherwise specified
+- Put components in `/_components` in the route if one-off components
+- Put components in `/components` from the root if shared components
+
+##### Server Components
+
+- Use `"use server"` at the top of the file.
+- Implement Suspense for asynchronous data fetching to show loading states while data is being fetched.
+- If no asynchronous logic is required for a given server component, you do not need to wrap the component in `<Suspense>`. You can simply return the final UI directly since there is no async boundary needed.
+- If asynchronous fetching is required, you can use a `<Suspense>` boundary and a fallback to indicate a loading state while data is loading.
+- Server components cannot be imported into client components. If you want to use a server component in a client component, you must pass the as props using the "children" prop
+- params in server pages should be awaited such as `const { courseId } = await params` where the type is `params: Promise<{ courseId: string }>`
+
+Example of a server layout:
+
+```tsx
+"use server"
+
+export default async function ExampleServerLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
+  return children
+}
+```
+
+Example of a server page (with async logic):
+
+```tsx
+"use server"
+
+import { Suspense } from "react"
+import { SomeAction } from "@/actions/some-actions"
+import SomeComponent from "./_components/some-component"
+import SomeSkeleton from "./_components/some-skeleton"
+
+export default async function ExampleServerPage() {
+  return (
+    <Suspense fallback={<SomeSkeleton className="some-class" />}>
+      <SomeComponentFetcher />
+    </Suspense>
+  )
+}
+
+async function SomeComponentFetcher() {
+  const { data } = await SomeAction()
+  return <SomeComponent className="some-class" initialData={data || []} />
+}
+```
+
+Example of a server page (no async logic required):
+
+```tsx
+"use server"
+
+import SomeClientComponent from "./_components/some-client-component"
+
+// In this case, no asynchronous work is being done, so no Suspense or fallback is required.
+export default async function ExampleServerPage() {
+  return <SomeClientComponent initialData={[]} />
+}
+```
+
+Example of a server component:
+
+```tsx
+"use server"
+
+interface ExampleServerComponentProps {
+  // Your props here
+}
+
+export async function ExampleServerComponent({
+  props
+}: ExampleServerComponentProps) {
+  // Your code here
+}
+```
+
+##### Client Components
+
+- Use `"use client"` at the top of the file
+- Client components can safely rely on props passed down from server components, or handle UI interactions without needing <Suspense> if there’s no async logic.
+- Never use server actions in client components. If you need to create a new server action, create it in `/actions`
+
+Example of a client page:
+
+```tsx
+"use client"
+
+export default function ExampleClientPage() {
+  // Your code here
+}
+```
+
+Example of a client component:
+
+```tsx
+"use client"
+
+interface ExampleClientComponentProps {
+  initialData: any[]
+}
+
+export default function ExampleClientComponent({
+  initialData
+}: ExampleClientComponentProps) {
+  // Client-side logic here
+  return <div>{initialData.length} items</div>
+}
+```
+
+### File Structure
+
+- Organize files in folders based on their purpose and ownership
+- Use predictable, collision-resistant naming patterns
+- Structure: `{bucket}/{userId}/{purpose}/{filename}`
+- Example: `profile-images/123e4567-e89b/avatar/profile.jpg`
+- Include timestamps in filenames when version history is important
+- Example: `documents/123e4567-e89b/contracts/2024-02-13-contract.pdf`
+
+## File Handling
+
+### Upload Rules
+
+- Always validate file size before upload
+- Implement file type validation using both extension and MIME type
+- Generate unique filenames to prevent collisions
+- Set appropriate content-type headers
+- Handle existing files appropriately (error or upsert)
+
+Example validation:
+
+```ts
+const MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB
+const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"]
+
+function validateFile(file: File): boolean {
+  if (file.size > MAX_FILE_SIZE) {
+    throw new Error("File size exceeds limit")
+  }
+
+  if (!ALLOWED_TYPES.includes(file.type)) {
+    throw new Error("File type not allowed")
+  }
+
+  return true
+}
+```
+
+### Download Rules
+
+- Always handle missing files gracefully
+- Implement proper error handling for failed downloads
+- Use signed URLs for private files
+
+### Delete Rules
+
+- Implement soft deletes when appropriate
+- Clean up related database records when deleting files
+- Handle bulk deletions carefully
+- Verify ownership before deletion
+- Always delete all versions/transforms of a file
+
+```
+
+
+
+
+
