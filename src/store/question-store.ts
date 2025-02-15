@@ -4,7 +4,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import questionsData from "../data/questions.json"
 
-interface Answer {
+export interface Answer {
   questionIndex: number
   selectedOption: number
 }
