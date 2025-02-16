@@ -10,8 +10,10 @@ export interface Answer {
 }
 
 interface QuestionState {
+  hasStarted: boolean
   currentQuestionIndex: number
   answers: Answer[]
+  setHasStarted: (started: boolean) => void
   setCurrentQuestion: (index: number) => void
   selectOption: (questionIndex: number, optionIndex: number) => void
   reset: () => void
@@ -20,10 +22,13 @@ interface QuestionState {
 export const useQuestionStore = create<QuestionState>()(
   persist(
     (set) => ({
+      hasStarted: false,
       currentQuestionIndex: 0,
       answers: [],
+      setHasStarted: (started) => 
+        set({ hasStarted: started }),
       setCurrentQuestion: (index) => 
-        set({ currentQuestionIndex: index }),
+        set({ currentQuestionIndex: index, hasStarted: true }),
       selectOption: (questionIndex, optionIndex) =>
         set((state) => ({
           answers: [
@@ -32,7 +37,11 @@ export const useQuestionStore = create<QuestionState>()(
           ],
           currentQuestionIndex: questionIndex + 1,
         })),
-      reset: () => set({ currentQuestionIndex: 0, answers: [] }),
+      reset: () => set({ 
+        hasStarted: false,
+        currentQuestionIndex: 0, 
+        answers: [] 
+      }),
     }),
     {
       name: "question-store",
