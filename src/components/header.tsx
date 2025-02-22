@@ -16,7 +16,7 @@ export function Header({ className, progress }: HeaderProps) {
         </div>
 
         {progress !== undefined && (
-          <div className="w-full h-4 bg-white border-2 border-black rounded-full overflow-hidden">
+          <div className="w-full h-4 bg-white border-4 border-black rounded-full overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <div 
               className="h-full bg-pink-200 transition-all duration-300 ease-in-out"
               style={{ width: `${progress}%` }}

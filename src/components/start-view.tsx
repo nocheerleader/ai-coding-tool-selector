@@ -13,7 +13,7 @@ export function StartView() {
       <div className="w-full max-w-2xl mx-auto bg-pink-200 rounded-lg p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
         
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,0.25)]">
-        Find the Perfect Match for Building Your Prototype!
+        Not sure which AI tool to use?
         </h1>
 
         <div className="w-32 h-32 mx-auto mb-8 bg-gray-100 rounded-full border-4 border-black flex items-center justify-center relative overflow-hidden">
@@ -26,7 +26,7 @@ export function StartView() {
         </div>
 
         <p className="text-xl text-center mb-12 text-gray-800">
-          Not sure which AI tool to use?<br />
+        Find the Perfect Match for Building Your Prototype!<br />
           Answer these {questionsData.questions.length} questions to find out!
         </p>
 

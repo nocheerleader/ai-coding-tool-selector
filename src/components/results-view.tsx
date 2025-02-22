@@ -76,7 +76,7 @@ export function ResultsView() {
       <BrutalistButton 
         onClick={reset}
         className="w-full"
-        variant="outline"
+        variant="default"
       >
         <RefreshCcw className="w-4 h-4 mr-2" />
         Start Over

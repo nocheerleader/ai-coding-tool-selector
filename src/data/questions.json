@@ -82,7 +82,8 @@
         ]
       },
       {
-        "question": "Will your project need user authentication?",
+        "question": "Will your app need user authentication?",
+        "explanation": "User authentication is when you log into an app with a username and password. You need it if your app handles personal details, sensitive data, or personalized features.\n\nFor simple tools or prototypes without user-specific features, you can skip it. But if users will create accounts, save data, or access personalized content, it's essential.",
         "options": [
           {
             "text": "Absolutely",
@@ -96,6 +97,7 @@
       },
       {
         "question": "Will your app need a database?",
+        "explanation": "A database stores and organizes data for your app, like user info, settings, or saved content. You need it if your app handles data that users create, view, or update.\n\nFor simple prototypes or static apps, you can skip it. But if your app needs to save and retrieve data, a database is required.",
         "options": [
           {
             "text": "Yes, data storage is key",
@@ -108,7 +110,8 @@
         ]
       },
       {
-        "question": "Do you want to store your code on GitHub?",
+        "question": "Want to save your code on GitHub?",
+        "explanation": "GitHub is a platform for storing and collaborating on code. You need it if you want to store your code online, share it with others, or roll back to an earlier version of your app. If you want your code stored safely, it's is a solid choice to set up a GitHub repository.",
         "options": [
           {
             "text": "Yes, required",
