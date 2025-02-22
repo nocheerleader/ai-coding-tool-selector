@@ -1,37 +1,32 @@
 export const tools = {
   lovable: {
     name: "Lovable",
-    logo: "/logos/lovable.svg", // We'll need these logo files
-    description: "No-code prototyping tool"
+    logo: "/logos/lovable.svg"
   },
   replit: {
     name: "Replit",
-    logo: "/logos/replit.svg",
-    description: "Cloud development environment"
+    logo: "/logos/replit.svg"
   },
   v0: {
     name: "v0",
-    logo: "/logos/v0.svg",
-    description: "AI-powered web development"
+    logo: "/logos/v0.svg"
   },
   bolt: {
     name: "Bolt",
-    logo: "/logos/bolt.svg",
-    description: "Full-stack development platform"
+    logo: "/logos/bolt.svg"
   },
   cursor: {
     name: "Cursor",
-    logo: "/logos/cursor.svg",
-    description: "AI-powered code editor"
+    logo: "/logos/cursor.svg"
   },
   chatgpt: {
     name: "ChatGPT",
-    logo: "/logos/chatgpt.svg",
-    description: "AI language model"
+    logo: "/logos/chatgpt.svg"
   },
   claudeSonnet: {
-    name: "Claude",
-    logo: "/logos/claude.svg",
-    description: "AI assistant"
+    name: "Claude Sonnet",
+    logo: "/logos/claude.svg"
   }
-} 
+} as const
+
+export type ToolId = keyof typeof tools 
