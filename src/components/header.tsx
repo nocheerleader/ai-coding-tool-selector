@@ -12,7 +12,7 @@ export function Header({ className, progress }: HeaderProps) {
     <div className={cn("w-full px-4 py-3 border-b", className)}>
       <div className="container flex flex-col gap-2 max-w-3xl mx-auto">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold">AI Coding Tool Selector</h1>
+          <h1 className="text-2xl font-bold">AI Prototype Tool Selector</h1>
         </div>
 
         {progress !== undefined && (
