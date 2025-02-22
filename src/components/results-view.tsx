@@ -7,6 +7,7 @@ import { useQuestionStore } from "@/store/question-store"
 import { calculateScores } from "@/lib/calculate-scores"
 import { RefreshCcw, Check } from "lucide-react"
 import { tools, type ToolId } from "@/config/tools"
+import { transformFeature } from "@/lib/transform-features"
 
 export function ResultsView() {
   const { answers, reset } = useQuestionStore()
@@ -70,12 +71,15 @@ export function ResultsView() {
               <div className="space-y-2">
                 <h5 className="text-sm font-medium text-black">Why this tool:</h5>
                 <ul className="text-sm text-gray-800 space-y-2">
-                  {tool.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
+                  {tool.features
+                    .map(feature => ({ transformed: transformFeature(feature) }))
+                    .filter(({ transformed }) => transformed !== null)
+                    .map(({ transformed }, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start gap-2">
+                        <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <span>{transformed}</span>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
