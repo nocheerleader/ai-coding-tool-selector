@@ -55,7 +55,7 @@ export function QuestionContainer() {
   return (
     <>
       <Header progress={progress} />
-      <main className="flex-1 flex items-center justify-center p-8">
+      <main className="flex-1 flex flex-col items-center pt-12 p-8">
         <div className="w-full max-w-2xl mx-auto bg-pink-200 rounded-lg p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex flex-col gap-6">
             <div className="space-y-2">
@@ -81,7 +81,7 @@ export function QuestionContainer() {
             <div className="flex gap-3 mt-4">
               {canGoBack && (
                 <BrutalistButton
-                  variant="outline"
+                  variant="default"
                   onClick={() => setCurrentQuestion(currentQuestionIndex - 1)}
                   className="flex-1"
                 >

@@ -95,10 +95,10 @@
         ]
       },
       {
-        "question": "Will your app need a database for data storage?",
+        "question": "Will your app need a database?",
         "options": [
           {
-            "text": "Yes, data management is key",
+            "text": "Yes, data storage is key",
             "weights": { "lovable": 2, "replit": 1, "bolt": 3, "cursor": 4 }
           },
           {
