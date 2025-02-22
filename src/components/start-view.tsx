@@ -11,7 +11,7 @@ export function StartView() {
     <div className="flex-1 flex flex-col items-center pt-12 p-8">
       <div className="w-full max-w-2xl mx-auto bg-pink-200 rounded-lg p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
         
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,0.25)]">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-black">
         Not sure which AI tool to use?
         </h1>
 

@@ -10,7 +10,7 @@ const brutalistBadgeVariants = cva(
     variants: {
       variant: {
         default: "bg-pink-200 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]",
-        outline: "bg-transparent text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]",
+        outline: "bg-pink-200/50 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]",
       },
     },
     defaultVariants: {

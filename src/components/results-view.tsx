@@ -5,7 +5,7 @@ import { BrutalistButton } from "@/components/ui/brutalist-button"
 import { BrutalistBadge } from "@/components/ui/brutalist-badge"
 import { useQuestionStore } from "@/store/question-store"
 import { calculateScores } from "@/lib/calculate-scores"
-import { RefreshCcw } from "lucide-react"
+import { RefreshCcw, Check } from "lucide-react"
 import { tools, type ToolId } from "@/config/tools"
 
 export function ResultsView() {
@@ -41,14 +41,21 @@ export function ResultsView() {
               className="p-6 rounded-lg border-4 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 border-2 border-black rounded-md flex items-center justify-center bg-white p-2 flex-shrink-0">
-                  <Image
-                    src={toolInfo.logo}
-                    alt={`${toolInfo.name} logo`}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="w-16 h-16 border-2 border-black rounded-md overflow-hidden transition-all hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5">
+                  <a 
+                    href={toolInfo.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full h-full flex items-center justify-center bg-white p-2"
+                  >
+                    <Image
+                      src={toolInfo.logo}
+                      alt={`${toolInfo.name} logo`}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-contain"
+                    />
+                  </a>
                 </div>
                 <div>
                   <h4 className="text-xl font-bold capitalize mb-2 text-black">
@@ -62,9 +69,12 @@ export function ResultsView() {
 
               <div className="space-y-2">
                 <h5 className="text-sm font-medium text-black">Why this tool:</h5>
-                <ul className="text-sm text-gray-800 space-y-1">
+                <ul className="text-sm text-gray-800 space-y-2">
                   {tool.features.map((feature, featureIndex) => (
-                    <li key={featureIndex}>• {feature}</li>
+                    <li key={featureIndex} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
