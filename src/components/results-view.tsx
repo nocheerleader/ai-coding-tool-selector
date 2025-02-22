@@ -22,8 +22,8 @@ export function ResultsView() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h3 className="text-2xl font-bold text-black drop-shadow-[4px_4px_0px_rgba(0,0,0,0.25)]">
-          Your Recommended Tools
+        <h3 className="text-2xl font-bold text-black">
+          Tool Recommendations
         </h3>
         <p className="text-lg text-gray-800">
           Based on your answers, here are your best matches:

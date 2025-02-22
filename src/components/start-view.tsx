@@ -2,7 +2,6 @@
 
 import { useQuestionStore } from "@/store/question-store"
 import { BrutalistButton } from "@/components/ui/brutalist-button"
-import questionsData from "@/data/questions.json"
 import Image from "next/image"
 
 export function StartView() {
@@ -27,7 +26,7 @@ export function StartView() {
 
         <p className="text-xl text-center mb-12 text-gray-800">
         Find the Perfect Match for Building Your Prototype!<br />
-          Answer these {questionsData.questions.length} questions to find out!
+          {/* Answer these {questionsData.questions.length} questions to find out! */}
         </p>
 
         <div className="flex justify-center">
@@ -36,7 +35,7 @@ export function StartView() {
             size="lg"
             className="w-full max-w-xs"
           >
-            START
+            START HERE
           </BrutalistButton>
         </div>
       </div>
